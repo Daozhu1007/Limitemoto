@@ -64,7 +64,16 @@ python <skill目录>/scripts/awmc_get.py --refresh                      # 刷新
 - 产物 track.mp3 = 游戏内实际播放的剪辑版音频（无按键音）；用包内 `maidata.txt` 的 `&title=` 核对曲名
 - 整包/曲绘/背景视频: `--zip --novideo`、`bg.png`、`pv.mp4` 路由见 awmc_get.py 文件头注释
 - **fallback**（站点挂了/曲不在）: YouTube 外部出力/譜面確認用渲染视频 = 游戏版音源（yt-dlp `-x --audio-format mp3 --ffmpeg-location <imageio_ffmpeg路径>`；搜曲名+外部出力，认准 めーがす/SAT:S/ざっくま 等渲染 up 主或官方频道），渲染版比游戏版多几秒首尾静音，不影响对齐
-- Arcaea 曲目: 不走 awmc，用官方频道音频（如 Toby Fox OST）
+
+**Arcaea**（游戏内基本用曲师完整版——风险在"选对版本"，不在"找游戏剪辑"）:
+
+1. 小写缩写 → 官方曲名: `ytsearch "<缩写> arcaea"` 交叉确认（历史案例: chelsta→Chelsea、onestepcloser→One Step Closer (Mameyudoufu feat. 藍月なくる)、tabootearsup→taboo tears you up 2017 (REDALiCE)、Code_Oblivion→Code: Oblivion、gimme→Gimme Caramel Popcorn!）
+2. **多命中必须消歧**: 缩写歧义（gimme 曾同时命中 GIMME DA BLOOD 和 Gimme Caramel Popcorn!）→ 抽帧看选曲画面/曲名牌: `ffmpeg -ss 3 -i video.mp4 -frames:v 1`，再加 `-ss 25` 一帧
+3. 音源优先级: **曲师本人频道**（YouTube/SoundCloud/Bandcamp）> lowiro 官方 > 高播放转载
+   - 曲师改题常见（キャラメルポップコーンたべたいよ〜 → Arcaea 题为 Gimme Caramel Popcorn!）: 按曲师名搜原题；完整版可直接用——RhythmAlign 的 offset 估计天然处理游戏版从完整版截取的偏移
+   - Arcaea 无 maimai 式大剪歌，但注意同名 remix/别 version
+4. 下载同 fallback 链路，文件名与 mp4 同名（`歌名.mp3`）
+5. **最后防线**: RhythmAlign 对不上会 low-confidence 拒绝输出——被拒绝先怀疑音源版本拿错，而不是去调参数
 
 ### ⑤ 归位（agent 执行，无需确认）
 
