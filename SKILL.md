@@ -74,6 +74,11 @@ python <skill目录>/scripts/awmc_get.py --refresh                      # 刷新
    - Arcaea 无 maimai 式大剪歌，但注意同名 remix/别 version
 4. 下载同 fallback 链路，文件名与 mp4 同名（`歌名.mp3`）
 5. **最后防线**: RhythmAlign 对不上会 low-confidence 拒绝输出——被拒绝先怀疑音源版本拿错，而不是去调参数
+6. **YouTube bot 检测三层应对**（2026-10-05 实战: "Sign in to confirm you're not a bot"）:
+   - 根治①: 装 deno（JS runtime）进 PATH —— winget 无此包，从 github.com/denoland/deno/releases 下 `deno-x86_64-pc-windows-msvc.zip` 解压 deno.exe 到 `~/bin`。装完 android client 流会解除 SABR 限制（111→206kbps）
+   - 应急②: `--extractor-args "youtube:player_client=android"` —— 无需登录态，配 deno 可达 ~206kbps/44.1kHz（对齐足够；web client 的 48kHz/227kbps 更好）
+   - 无效③: cookies-from-browser edge（浏览器运行时锁库，yt-dlp#7271）；web client 即便 +deno+代理 仍可能 bot 检测（IP 信誉，登录态才是终极解）
+   - 库内已有同源文件时: 新下产物先 ffprobe 对比码率/时长，码率不占优就不覆盖
 
 **联动曲特例**（曲师不在 Arcaea 生态，如 Last Goodbye/Undertale）: OST 官方频道就是"曲师本人"级别的一手源。**组曲混剪是最大陷阱**——搜 Last Goodbye 时 6 个结果里 3 个是 Hopes And Dreams+Save The World+Last Goodbye 连播（420s+），另有翻弹/Cover 片段；认准官方频道 + 时长吻合手元（视频时长 - 20s 前后操作 ≈ 曲长）。端到端实证: lastgoodbye 官方 OST(139s) × find_offset → 置信通过（offset 5.6s = 进曲准备段）。
 
