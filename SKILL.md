@@ -1,9 +1,9 @@
 ---
-name: limitimeto
+name: limititemoto
 description: 音游手元素材流水线（Limitime 的手元 workflow）。把手机传来（小米互传/相册导出）的手元视频+成绩截图自动识别曲目、按谱面定数归档进 D:\Daozh\Videos、配游戏原版音频、并可驱动 RhythmAlign 出 _synced.mp4。当用户提到"整理手元/新的一批手元/小米互传的文件/手元归档/识别截图配视频/找音频/track.mp3/舞萌或Arcaea素材准备"时使用。B站发布类需求属于本流水线末端，必须人工确认后才执行。
 ---
 
-# Limitimeto — 手元素材流水线
+# Limitemoto — 手元素材流水线
 
 Limitime + Temoto(手元) + Workflow。解决从"手机传上来一堆文件"到"归档完毕可发布"的全流程。
 判断层（识别、命名、决策）由 agent 做，执行层用本 skill 的 scripts 和两个公开 API。

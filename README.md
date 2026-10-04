@@ -1,4 +1,4 @@
-# Limitimeto
+# Limitemoto
 
 **Limitime + Temoto(手元) + Workflow** —— 音游手元素材流水线。
 
@@ -30,7 +30,7 @@
 作为 agent skill 安装（junction 或复制到 agent 的 skills 目录）:
 
 ```
-mklink /J "%USERPROFILE%\.agents\skills\limitimeto" "D:\Code\Limitimeto"
+mklink /J "%USERPROFILE%\.agents\skills\limititemoto" "D:\Code\Limitemoto"
 ```
 
 SKILL.md 里写死了归档规范、两个公开 API（落雪定数表 / wmc.pub 谱面站）、以及一路踩过来的坑
