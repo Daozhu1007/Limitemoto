@@ -75,6 +75,8 @@ python <skill目录>/scripts/awmc_get.py --refresh                      # 刷新
 4. 下载同 fallback 链路，文件名与 mp4 同名（`歌名.mp3`）
 5. **最后防线**: RhythmAlign 对不上会 low-confidence 拒绝输出——被拒绝先怀疑音源版本拿错，而不是去调参数
 
+**联动曲特例**（曲师不在 Arcaea 生态，如 Last Goodbye/Undertale）: OST 官方频道就是"曲师本人"级别的一手源。**组曲混剪是最大陷阱**——搜 Last Goodbye 时 6 个结果里 3 个是 Hopes And Dreams+Save The World+Last Goodbye 连播（420s+），另有翻弹/Cover 片段；认准官方频道 + 时长吻合手元（视频时长 - 20s 前后操作 ≈ 曲长）。端到端实证: lastgoodbye 官方 OST(139s) × find_offset → 置信通过（offset 5.6s = 进曲准备段）。
+
 ### ⑤ 归位（agent 执行，无需确认）
 
 建 `<定数>/<歌名>/` → 照片视频改名迁入（`mv`）→ 音频命名 `歌名.mp3`。
